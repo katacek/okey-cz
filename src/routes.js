@@ -4,10 +4,12 @@ const { utils: { log } } = Apify;
 
 exports.handleStart = async ({ request, $ }) =>
 {
-     const requestQueue = await Apify.openRequestQueue();
+    const requestQueue = await Apify.openRequestQueue();
     //start page, add all categories to requestQueue
+    console.log('I am on the main page')
     const links = $('ul.box-menu__line').find('li.box-menu__item:not(.box-menu__item--title)').find('a.box-menu__item__link').map(function ()
     { return $(this).attr('href'); }).get();
+    console.log(links)
     for (link of links)
     {
         await requestQueue.addRequest({
