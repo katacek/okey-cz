@@ -10,11 +10,11 @@ const { handleStart, handleList, handleDetail } = require('./routes');
 const { utils: { log } } = Apify;
 
 Apify.main(async () => {
-    //const { startUrls } = await Apify.getInput();
+    const { startUrls } = await Apify.getInput();
 
     //const requestList = await Apify.openRequestList('start-urls', startUrls);
     const requestQueue = await Apify.openRequestQueue();
-    requestQueue.addRequest({ url: 'https://www.okay.cz/' });
+    requestQueue.addRequest({ url: startUrls });
 
     const crawler = new Apify.CheerioCrawler({
        // requestList,
