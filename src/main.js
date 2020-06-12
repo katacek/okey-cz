@@ -12,9 +12,12 @@ const { utils: { log } } = Apify;
 Apify.main(async () => {
     const { startUrls } = await Apify.getInput();
 
+    console.log('Start')
+
     //const requestList = await Apify.openRequestList('start-urls', startUrls);
     const requestQueue = await Apify.openRequestQueue();
     requestQueue.addRequest({ url: "https://www.okay.cz/" });
+    console.log('Got the request queue')
 
     const crawler = new Apify.CheerioCrawler({
        // requestList,
@@ -26,9 +29,11 @@ Apify.main(async () => {
         // Remove to unleash full power.
         maxConcurrency: 50,
         handlePageTimeoutSecs:600,
+       
         
         handlePageFunction: async (context) => {
             const { url, userData: { label } } = context.request;
+            console.log('Page opened.', { label, url });
             log.info('Page opened.', { label, url });
             switch (label) {
                 case 'LIST':
