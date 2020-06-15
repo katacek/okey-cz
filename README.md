@@ -1,6 +1,6 @@
-# Okey.cz scraper
+# Okay.cz scraper
 
-The actor will scrape all products from [Okey.cz](https://www.okay.cz/). It is going through the whole categories and pagination, gets the link to the product details and gets data in format as shown below.
+The actor will scrape all products from [Okay.cz](https://www.okay.cz/). It is going through the whole categories and pagination, gets the link to the product details and gets data in format as shown below.
 
 Example item:
 ``` 
