@@ -16,7 +16,7 @@ Apify.main(async () => {
 
     //const requestList = await Apify.openRequestList('start-urls', startUrls);
     const requestQueue = await Apify.openRequestQueue();
-    requestQueue.addRequest({ url: "https://www.okay.cz/" });
+    await requestQueue.addRequest({ url: "https://www.okay.cz/" });
     console.log('Got the request queue')
 
     const crawler = new Apify.CheerioCrawler({
