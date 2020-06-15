@@ -1,15 +1,17 @@
-# CheerioCrawler project
+# Okey.cz scraper
 
-This template is a production ready boilerplate for developing with `CheerioCrawler`.
-Use this to bootstrap your projects using the most up-to-date code.
+The actor will scrape all products from [Okey.cz](https://www.okay.cz/). It is going through the whole categories and pagination, gets the link to the product details and gets data in format as shown below.
 
-If you're looking for examples or want to learn more visit:
-- [Tutorial](https://sdk.apify.com/docs/guides/getting-started#cheeriocrawler-aka-jquery-crawler) 
-- [Documentation](https://sdk.apify.com/docs/api/cheerio-crawler) 
-- [Examples](https://sdk.apify.com/docs/examples/cheerio-crawler) 
-
-## Documentation reference
-
-- [Apify SDK](https://sdk.apify.com/)
-- [Apify Actor documentation](https://docs.apify.com/actor)
-- [Apify CLI](https://docs.apify.com/cli)
+Example item:
+```{
+  "itemUrl": "https://www.okay.cz/oled-televize-philips-55oled754-12-2019-55-139cm/",
+  "itemId": 583025,
+  "itemName": "OLED televize Philips 55OLED754/12(2019) / 55\" (139cm)",
+  "currentPrice": 27150,
+  "originalPrice": 44999,
+  "discounted": true,
+  "breadcrumb": "ELEKTRO »Televize »Úhlopříčka TV »TV s úhlopříčkou 55\" (139 cm) »OLED televize Philips 55OLED754/12(2019) / 55\" (139cm)",
+  "currency": "CZK",
+  "inStock": true,
+  "img": "https://img.okay.cz/gal/tv-s-uhloprickou-55-139-cm-oled-televize-philips-55oled754-12-2019-55-139cm-original-1332693.jpg"
+}```
