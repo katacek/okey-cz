@@ -3,7 +3,8 @@
 The actor will scrape all products from [Okey.cz](https://www.okay.cz/). It is going through the whole categories and pagination, gets the link to the product details and gets data in format as shown below.
 
 Example item:
-```{
+``` 
+{
   "itemUrl": "https://www.okay.cz/oled-televize-philips-55oled754-12-2019-55-139cm/",
   "itemId": 583025,
   "itemName": "OLED televize Philips 55OLED754/12(2019) / 55\" (139cm)",
@@ -14,4 +15,5 @@ Example item:
   "currency": "CZK",
   "inStock": true,
   "img": "https://img.okay.cz/gal/tv-s-uhloprickou-55-139-cm-oled-televize-philips-55oled754-12-2019-55-139cm-original-1332693.jpg"
-}```
+}
+```
