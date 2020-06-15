@@ -27,8 +27,11 @@ Apify.main(async () => {
         maxConcurrency: 50,
         handlePageTimeoutSecs:600,
        
-        
+       // context is made up by crawler, it contains $, page body, request url, response and session
         handlePageFunction: async (context) => {
+            // from context.request get url and put it to const url (alias url = context.request.url)
+            // moreover, get userdata, and from them get label and put it to label 
+            // alias (label = context.request.userData.label)
             const { url, userData: { label } } = context.request;
             console.log('Page opened.', { label, url });
             log.info('Page opened.', { label, url });

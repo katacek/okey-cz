@@ -2,14 +2,17 @@ const Apify = require('apify');
 
 const { utils: { log } } = Apify;
 
+// at this point, the main page is already loaded in $
 exports.handleStart = async ({ request, $ }) =>
 {
     const requestQueue = await Apify.openRequestQueue();
-    //start page, add all categories to requestQueue
+    //start page, add all categories links to requestQueue
     const links = $('ul.box-menu__line').find('li.box-menu__item:not(.box-menu__item--title)').find('a.box-menu__item__link').map(function ()
     { return $(this).attr('href'); }).get();
     for (link of links)
-    {
+    {   
+        // request is an object, setting url to link and in userdata, setting new dictionary label: LIST
+        // it is me who is setting the label value, just using it for making the crawler fcn more clear
         await requestQueue.addRequest({
             url: link,
             userData: { label: 'LIST' }
