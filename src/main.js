@@ -10,13 +10,13 @@ const { handleStart, handleList, handleDetail } = require('./routes');
 const { utils: { log } } = Apify;
 
 Apify.main(async () => {
-    const { startUrls } = await Apify.getInput();
+    //const { startUrls } = await Apify.getInput();
 
     console.log('Start')
 
     //const requestList = await Apify.openRequestList('start-urls', startUrls);
     const requestQueue = await Apify.openRequestQueue();
-    requestQueue.addRequest({ url: "https://www.okay.cz/mobilni-telefony-3/" });
+    requestQueue.addRequest({ url: "https://www.okay.cz/" });
     console.log('Got the request queue')
 
     const crawler = new Apify.CheerioCrawler({
