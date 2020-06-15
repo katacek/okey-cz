@@ -58,10 +58,10 @@ exports.handleDetail = async ({ request, $ }) => {
     result.itemName = $('.product-title.js-productTitle').text().trim();
     result.currentPrice = parseInt($('#product_price_wv').text().replace(/\s/g, ''));
     result.originalPrice = parseInt($('#product_price_recomended').text().replace(/\s/g, ''));
-    let additionalDiscount = productDescription.labels.find(x => x.includes('SLEVA')).replace('SLEVA','').trim();
+    let additionalDiscount = productDescription.labels.find(x => x.includes('SLEVA'));
     if (additionalDiscount)
     {
-        additionalDiscount = parseInt(additionalDiscount);
+        additionalDiscount = parseInt(additionalDiscount.replace('SLEVA','').trim());
         if (additionalDiscount)
             result.currentPrice = Math.trunc(result.currentPrice * ((100 - additionalDiscount) / 100));
     }
