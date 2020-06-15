@@ -32,6 +32,7 @@ Apify.main(async () => {
        
         
         handlePageFunction: async (context) => {
+            console.log('I am in the handle page fcn.');
             const { url, userData: { label } } = context.request;
             console.log('Page opened.', { label, url });
             log.info('Page opened.', { label, url });
