@@ -16,7 +16,7 @@ Apify.main(async () => {
 
     //const requestList = await Apify.openRequestList('start-urls', startUrls);
     const requestQueue = await Apify.openRequestQueue();
-    requestQueue.addRequest({ url: "https://www.okay.cz/" });
+    requestQueue.addRequest({ url: "https://www.okay.cz/mobilni-telefony-3/" });
     console.log('Got the request queue')
 
     const crawler = new Apify.CheerioCrawler({
