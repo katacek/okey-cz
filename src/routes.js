@@ -1,15 +1,15 @@
 const Apify = require('apify');
 
-const { utils: { log } } = Apify;
+//const { utils: { log } } = Apify;
 
 // at this point, the main page is already loaded in $
-exports.handleStart = async ({ request, $ }) =>
+exports.handleStart = async ({ $ }) =>
 {
     const requestQueue = await Apify.openRequestQueue();
     //start page, add all categories links to requestQueue
     const links = $('ul.box-menu__line').find('li.box-menu__item:not(.box-menu__item--title)').find('a.box-menu__item__link').map(function ()
     { return $(this).attr('href'); }).get();
-    for (link of links)
+    for (let link of links)
     {   
         // request is an object, setting url to link and in userdata, setting new dictionary label: LIST
         // it is me who is setting the label value, just using it for making the crawler fcn more clear
@@ -21,13 +21,13 @@ exports.handleStart = async ({ request, $ }) =>
 
 };
 
-exports.handleList = async ({ request, $ }) =>
+exports.handleList = async ({ $ }) =>
 {
     const requestQueue = await Apify.openRequestQueue();
     //add detail pages of all products on the page to requestQueue
     const links = $('li.js-gtm-product-wrapper').find('.title').find('a.js-gtm-product-link').map(function ()
     { return $(this).attr('href'); }).get();
-    for (link of links)
+    for (let link of links)
     {
         await requestQueue.addRequest({
             url: link,
@@ -53,7 +53,7 @@ exports.handleDetail = async ({ request, $ }) => {
     let productDescription = JSON.parse($('div#page-product-detail').children().first().attr('data-product'));
 
 
-    result = {};
+    let result = {};
     result.itemUrl = request.url;
     result.itemId = productDescription.id;
     result.itemName = $('.product-title.js-productTitle').text().trim();
