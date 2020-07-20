@@ -72,6 +72,7 @@ exports.handleDetail = async ({ request, $ }) => {
     result.currency = "CZK";
     result.inStock = !!$('p#availability:contains(kus)').text();
     result.img = $('a#js-zoomingLinkGallery').attr('href');
+    result.vatInfo = $('.price-highlight.price-name').text();
 
     Apify.pushData(result)
 };
